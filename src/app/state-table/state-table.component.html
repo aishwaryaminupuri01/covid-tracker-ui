@@ -1,0 +1,29 @@
+<div class="table-container">
+  <h3>Covid Statistics</h3>
+    <button (click)="exportToCSV()" class="export-button">Export Covid Data</button>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>State Code</th>
+            <th>Total Positive Case Count</th>
+            <th>Total Negative Case Count</th>
+            <th>Total Recovered Count</th>
+            <th>Total Death Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let data of statesData">
+            <tr *ngFor="let state of data | keyvalue">
+              <td>{{ state.key }}</td>
+              <td>{{ state.value.positiveCasesViral }}</td>
+              <td>{{ state.value.negativeRegularScore }}</td>
+              <td>{{ state.value.recovered }}</td>
+              <td>{{ state.value.death }}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
